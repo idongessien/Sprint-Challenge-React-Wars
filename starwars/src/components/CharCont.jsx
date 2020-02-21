@@ -2,6 +2,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Char from './Char'
+import styled from 'styled-components'
+
+const CardContainer = styled.div`
+    background: rgba(0,0,0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2%;
+    margin: 5% auto;
+    width: 90%;
+`
 
 const CharCont = () => {
     const [data, setData] = useState([]);
@@ -19,7 +31,7 @@ const CharCont = () => {
 }, []);
 
     return (
-        <div>
+        <CardContainer>
                 { data.map((indiv, id) => (
                     <Char 
                     name={indiv.name}
@@ -31,7 +43,9 @@ const CharCont = () => {
                     key={id}
                     />
                 ))}
-        </div>
+                <footer>Copyright &copy; 2020. All Rights Reserved. idongessien</footer>
+        </CardContainer>
+        
     );
 }
 
